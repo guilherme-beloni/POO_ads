@@ -91,8 +91,8 @@ print("Horas Extras: R$ " + str(func1.calculaHExtra(iptQtdHX)))
 iptReajuste = input('\n\nDeseja reajustar as horas Extras? ( S / N) ')
 if iptReajuste == "S" or iptReajuste == "s":
   
-  reajuste = int(input('Reajuste hora normal (%): R$ '))
-  reajusteExtra = int(input('Reajuste hora extra (%): R$ '))
+  reajuste = int(input('Reajuste hora normal (%): '))
+  reajusteExtra = int(input('Reajuste hora extra (%): '))
   
   print('------- Informações -------')
   print("\nReajuste realizado com sucesso! \n\n")
