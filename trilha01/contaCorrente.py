@@ -43,7 +43,7 @@ class ContaCorrente:
 obj1 = ContaCorrente('Guilherme', 4568, 123987654, 0)
 print("\n\n\n\n===== Informações =====\n")
 print(obj1)
-sleep(2)
+sleep(1)
 
 
 
