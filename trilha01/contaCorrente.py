@@ -51,7 +51,7 @@ def main():
     while True:
         aux = input('\n\n\nDeseja fazer alguma operação? (S / N)')
         if aux == 's' or aux == 'S':
-            ipt = int(input('\n\nDigite 1 para SAQUE e 2 para DEPOSITO e 0 para CONSULTAR: '))
+            ipt = int(input('\n\nDigite (0) para CONSULTAR, (1) para SAQUE e (2) para DEPOSITO: '))
             if ipt == 1:
               while True:
                 iptSaque = float(input('\nDigite o valor do saque: '))
