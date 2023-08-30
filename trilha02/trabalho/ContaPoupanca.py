@@ -29,13 +29,17 @@ class ContaPoupanca(ContaBancaria):
         return False
 
     def __str__(self):
-        return super().__str__() + 'Dia de rendimento: ' + str(self.__diaRendimento) + ' ' + '\nTaxa de rendimento: ' + str(self.__taxaRendimento) 
-    
+        return super().__str__() + 'Dia de rendimento: ' + str(self.__diaRendimento) + ' ' + '\nTaxa de rendimento: ' + str(self.__taxaRendimento) + '% ' 
 
-contaPoupanca = ContaPoupanca('Célio', '51524481-5', 123, 150, 29, 0.5)
+
+diaRendimento = int(input("Dia de rendimento: "))
+contaPoupanca = ContaPoupanca('Célio', '100000-5', 123, 150, diaRendimento, 0.5)
 
 contaPoupanca.calculaNovoSaldo()
 
 def opcao2():
     print('\n----Conta Poupanca---- ')
     print(contaPoupanca)
+
+
+opcao2()

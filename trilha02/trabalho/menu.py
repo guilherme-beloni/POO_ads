@@ -1,4 +1,3 @@
-import datetime
 class ContaBancaria:
     def __init__(self, nomeCliente, numConta, numAgencia, saldo):
         self.__nomeCliente = nomeCliente
@@ -65,91 +64,14 @@ def deposito():
 
 
 
-class ContaPoupanca(ContaBancaria):
-    def __init__(self, nomeCliente, numConta, numAgencia, saldo, diaRendimento, taxaRendimento):
-        super().__init__(nomeCliente, numConta, numAgencia, saldo)
-        self.__diaRendimento = diaRendimento
-        self.__taxaRendimento = taxaRendimento
-
-    def getDiaDeRendimento(self):
-        return self.__diaRendimento    
-    def setDiaDeRendimento(self, diaRendimento):
-        self.__diaRendimento = diaRendimento
-
-
-    def getTaxaRendimento(self):
-        return self.__taxaRendimento
-    def setTaxaRendimento(self, taxa):
-        self.__taxaRendimento = taxa    
-
-
-    def calculaNovoSaldo(self):
-        hoje = datetime.datetime.now().day
-        if hoje == self.__diaRendimento:
-            rendimento = self.getSaldo() * (self.__taxaRendimento / 100)
-            self.setSaldo(self.getSaldo() + rendimento)
-            return True
-        return False
-
-    def __str__(self):
-        return super().__str__() + 'Dia de rendimento: ' + str(self.__diaRendimento) + ' ' + '\nTaxa de rendimento: ' + str(self.__taxaRendimento) 
-    
-
-contaPoupanca = ContaPoupanca('Célio', '51524481-5', 123, 150, 29, 0.5)
-
-contaPoupanca.calculaNovoSaldo()
-
-
-print('\n----Conta Poupanca---- ')
-print(contaPoupanca)
-
-
-
-
-
-
-class ContaEspecial(ContaBancaria):
-    def __init__(self, nomeCliente, numConta, numAgencia, saldo, limite):
-        super().__init__(nomeCliente, numConta, numAgencia, saldo)
-        self.__limite = limite
-
-
-
-    def getLimite(self):
-        return self.__limite    
-    def setLimite(self, limite):
-        self.__limite = limite
-
-    def sacarLim(self, valor):
-        if self.getSaldo() + self.__limite >= valor and valor > 0:
-            self.setSaldo(self.getSaldo() - valor)
-            return self.getSaldo()
-        else:
-            print("\n\n\nSaldo insuficiente ou valor inválido para saque\n\n\n")
-            return None
-
-
-    def __str__(self):
-        return super().__str__() + 'Limite: R$' + str(self.__limite)
-
-
-
-contaEspecial = ContaEspecial('Célio', '51524481-5', 123, 2000, 1000)
-contaEspecial.sacarLim(3000)
-
-def opcao3():
-    print('\n----Conta Especial---- ')
-    print(contaEspecial)
-
-
 
 
 
 
 def menu():
-    selecao = int(input('\nSelecione a conta que deseja consultar: \n(1) Conta Padrão \n(2) Conta Poupança \n(3) Conta Especial \n(0) para sair do sistema\n\n ' ))
+    selecao = int(input('\nSelecione a conta que deseja consultar: \n(1) Conta Corrente \n(2) Conta Poupança \n(3) Conta Especial \n(0) Sair do sistema\n\n ' ))
     if selecao == 1:
-        print('\n----Conta Padrão----')
+        print('\n----Conta Corrente----')
         print(conta)
         ipt1 = input('Digite (S) para saque ou (D) para depósito: ')
         if ipt1 == 'S' or ipt1 == 's':
@@ -161,11 +83,17 @@ def menu():
         else:
             print('Opção inválida')   
     elif selecao == 2:
-        import ContaPoupanca
-        ContaPoupanca.opcao2() 
+        ipt2 = input('\nDigite (C) para consultar ou (S) para sair:')
+        if ipt2 == 'C' or ipt2 == 'c':
+            import ContaPoupanca
+            ContaPoupanca.opcao2()
+        elif ipt2 == 'S' or ipt2 == 's':
+            print('Até Breve!!')
     elif selecao == 3:
-        import ContaEspecial
-        ContaEspecial.opcao3() 
+        ipt3 = input('\nDigite (S) para saque ')
+        if ipt3 == 'S' or ipt3 =='s':
+            import ContaEspecial
+            ContaEspecial.opcao3() 
     elif selecao == 0:
         print('Até Breve!!')
     else:

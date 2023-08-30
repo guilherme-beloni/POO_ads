@@ -1,4 +1,4 @@
-from ContaBancaria import ContaBancaria
+from menu import ContaBancaria
 
 
 class ContaEspecial(ContaBancaria):
@@ -26,10 +26,15 @@ class ContaEspecial(ContaBancaria):
         return super().__str__() + 'Limite: R$' + str(self.__limite)
 
 
+iptSaque = float(input('Valor do saque: '))
+contaEspecial = ContaEspecial('Célio', '222255-5', 123, 2000, 1000)
+contaEspecial.sacarLim(iptSaque)
 
-contaEspecial = ContaEspecial('Célio', '51524481-5', 123, 2000, 1000)
-contaEspecial.sacarLim(3000)
+
 
 def opcao3():
     print('\n----Conta Especial---- ')
     print(contaEspecial)
+
+
+opcao3()    
