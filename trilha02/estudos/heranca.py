@@ -69,19 +69,18 @@ class Funcionario:
 
 
 #inputs
-iptM = int(input('Matriucula: '))
-
-iptNome = input('Digite seu nome: ')
-iptDataAdmissao = input('informe a data de admissão: ')
-iptCargo = input('Qual o seu cargo na empresa: ')
-iptStatus = input('Qual o status: ')
-iptValorH = float(input('Qual o valor da hora trabalhada: '))
-iptValorHX = float(input('Qual o valor da hora extra trabalhada: '))
+#iptM = int(input('Matriucula: '))
+#iptNome = input('Digite seu nome: ')
+#iptDataAdmissao = input('informe a data de admissão: ')
+#iptCargo = input('Qual o seu cargo na empresa: ')
+#iptStatus = input('Qual o status: ')
+#iptValorH = float(input('Qual o valor da hora trabalhada: '))
+#iptValorHX = float(input('Qual o valor da hora extra trabalhada: '))
 iptQtdH = float(input('Quantas horas você trabalhou: '))
 iptQtdHX = float(input('Quantas horas extras você trabalhou: '))
 
 
-func1 = Funcionario(iptM, iptNome, iptCargo, iptValorH, iptValorHX, iptCargo, iptStatus)
+func1 = Funcionario(123, 'iptNome', 'iptCargo', 25, 30, 'iptCargo', 'iptStatus')
 
 print("Salário: R$ " + str(func1.calculaSalario(iptQtdH)))
 print("Horas Extras: R$ " + str(func1.calculaHExtra(iptQtdHX)))
@@ -98,4 +97,3 @@ if iptReajuste == "S" or iptReajuste == "s":
 
 else:
   print(func1)  
-  

@@ -22,13 +22,10 @@ class ContaCorrente:
   def setConta(self, conta):
     self.__conta = conta
 
-
   def getSaldo(self):
     return self.__saldo
   def setSaldo(self, saldo):
     self.__saldo = saldo
-
-
 
   def deposito(self, valor):
     return self.__saldo + valor
@@ -56,7 +53,7 @@ def main():
               while True:
                 iptSaque = float(input('\nDigite o valor do saque: '))
                 print(f"\n\n\n\n\Saque realizado com sucesso!\n\nSaldo atual: {obj1.saque(iptSaque)}")
-                atualizaSaque = obj1.setSaldo(obj1.saque(iptSaque))
+                obj1.setSaldo(obj1.saque(iptSaque))
                 aux = input('\n\n\nDeseja continuar sacando? (S / N) ')
                 if aux.lower() != "s":
                   break
@@ -64,7 +61,7 @@ def main():
               while True:
                 iptDeposito = float(input("\nDigite o valor do depósito: "))
                 print(f"\n\n\n\n\nDepósito realizado com sucesso!\n\nSaldo atual: {obj1.deposito(iptDeposito)}")
-                atualizaDep = obj1.setSaldo(obj1.deposito(iptDeposito))
+                obj1.setSaldo(obj1.deposito(iptDeposito))
 
                 sleep(0.5)
                 aux = input('\n\n\nDeseja continuar depositando? (S / N) ')

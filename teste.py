@@ -1,39 +1,59 @@
-class ContaCorrente:
-    def __init__(self, numero='', titular='', saldo=0):
-        self.numero = numero
-        self.titular = titular
-        self.saldo = saldo
+import datetime
 
-    def depositar(self, valor):
-        self.saldo += valor
-        return f"Depósito de {valor} realizado. Novo saldo: {self.saldo}"
+class ContaPoupanca(ContaBancaria):
+    def __init__(self, nomeCliente, numConta, numAgencia, saldo, diaDeRendimento, taxaDeRendimento):
+        super().__init__(nomeCliente, numConta, numAgencia, saldo)
+        self.__diaDeRendimento = diaDeRendimento
+        self.__taxaDeRendimento = taxaDeRendimento
+
+    def getDiaDeRendimento(self):
+        return self.__diaDeRendimento
+    def setDiaDeRendimento(self, diaDeRendimento):
+        self.__diaDeRendimento = diaDeRendimento
+
+    def getTaxaDeRendimento(self):
+        return self.__taxaDeRendimento
+    def setTaxaDeRendimento(self, taxaDeRendimento):
+        self.__taxaDeRendimento = taxaDeRendimento
+
+    def calcularNovoSaldo(self):
+        hoje = datetime.datetime.now().day
+        if hoje == self.__diaDeRendimento:
+            rendimento = self.getSaldo() * (self.__taxaDeRendimento / 100)
+            self.setSaldo(self.getSaldo() + rendimento)
+            return True
+        return False
+
+class ContaEspecial(ContaBancaria):
+    def __init__(self, nomeCliente, numConta, numAgencia, saldo, limite):
+        super().__init__(nomeCliente, numConta, numAgencia, saldo)
+        self.__limite = limite
+
+    def getLimite(self):
+        return self.__limite
+    def setLimite(self, limite):
+        self.__limite = limite
 
     def sacar(self, valor):
-        if self.saldo >= valor:
-            self.saldo -= valor
-            return f"Saque de {valor} realizado. Novo saldo: {self.saldo}"
+        if self.getSaldo() + self.__limite >= valor and valor > 0:
+            self.setSaldo(self.getSaldo() - valor)
+            return self.getSaldo()
         else:
-            return "Saldo insuficiente para saque."
+            return False
 
-# Instanciando um objeto da classe ContaCorrente
-conta = ContaCorrente()
+# Exemplo de uso
+conta_poupanca = ContaPoupanca('Ana', '123456', 456, 1000, 15, 0.5)
+conta_especial = ContaEspecial('Carlos', '654321', 789, 2000, 1000)
 
-# Obtendo valores de entrada para as propriedades
-conta.numero = input("Número da Conta: ")
-conta.titular = input("Titular da Conta: ")
-conta.saldo = float(input("Saldo Inicial: "))
-123546
-# Executando métodos e exibindo os resultados
-valor_deposito = float(input("Valor do Depósito: "))
-valor_saque = float(input("Valor do Saque: "))
+# Atualizar o saldo da conta poupança se for o dia de rendimento
+conta_poupanca.calcularNovoSaldo()
 
-resultado_deposito = conta.depositar(valor_deposito)
-resultado_saque = conta.sacar(valor_saque)
+# Sacar dinheiro da conta especial
+conta_especial.sacar(300)
 
-print("\n=== Informações da Conta Corrente ===")
-print("Número da Conta:", conta.numero)
-print("Titular da Conta:", conta.titular)
-print("Saldo Atual:", conta.saldo)
-print("\n=== Resultados ===")
-print(resultado_deposito)
-print(resultado_saque)
+# Exibir informações das contas
+print("Conta Poupança:")
+print(conta_poupanca)
+
+print("Conta Especial:")
+print(conta_especial)
