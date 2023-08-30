@@ -26,9 +26,10 @@ class ContaEspecial(ContaBancaria):
         return super().__str__() + 'Limite: R$' + str(self.__limite)
 
 
-iptSaque = float(input('Valor do saque: '))
+
+
 contaEspecial = ContaEspecial('Célio', '222255-5', 123, 2000, 1000)
-contaEspecial.sacarLim(iptSaque)
+
 
 
 
@@ -38,3 +39,6 @@ def opcao3():
 
 
 opcao3()    
+ipt3 = input('\nDigite (S) para saque ou (D) para depósito: ')
+iptSaque = float(input('Valor do saque: '))
+contaEspecial.sacarLim(iptSaque)

@@ -90,8 +90,8 @@ def menu():
         elif ipt2 == 'S' or ipt2 == 's':
             print('Até Breve!!')
     elif selecao == 3:
-        ipt3 = input('\nDigite (S) para saque ')
-        if ipt3 == 'S' or ipt3 =='s':
+        ipt3 = input('\nDigite (C) para consultar ou (S) para sair:')
+        if ipt3 == 'C' or ipt3 =='c':
             import ContaEspecial
             ContaEspecial.opcao3() 
     elif selecao == 0:
