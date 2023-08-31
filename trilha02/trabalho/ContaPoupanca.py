@@ -1,4 +1,4 @@
-from menu import ContaBancaria
+from ContaBancaria import ContaBancaria
 import datetime
 
 
@@ -34,7 +34,7 @@ class ContaPoupanca(ContaBancaria):
 
 
 
-contaPoupanca = ContaPoupanca('Célio', '100000-5', 123, 150000, 10, 0.5)
+contaPoupanca = ContaPoupanca('João Antunes', '100000-5', 123, 150000, 10, 0.5)
 contaPoupanca.calculaNovoSaldo()
 def opcao2():
     print('\n----Conta Poupanca---- ')

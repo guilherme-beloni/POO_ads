@@ -31,7 +31,7 @@ class ContaBancaria:
             return 'R$ ' + str(self.__saldo)
         else:
             return False
-        #return self.__saldo - valor 
+     
     
     def depositar(self, valor):
         return self.__saldo + valor

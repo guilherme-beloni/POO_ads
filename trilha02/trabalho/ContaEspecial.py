@@ -1,4 +1,4 @@
-from menu import ContaBancaria
+from ContaBancaria import ContaBancaria
 
 
 class ContaEspecial(ContaBancaria):
@@ -28,7 +28,7 @@ class ContaEspecial(ContaBancaria):
 
 
 
-contaEspecial = ContaEspecial('Célio', '222255-5', 123, 2000, 1000)
+contaEspecial = ContaEspecial('André Siqueira', '222255-5', 123, 2000, 1000)
 
 
 

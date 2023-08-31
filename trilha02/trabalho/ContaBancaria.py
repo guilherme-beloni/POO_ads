@@ -31,7 +31,7 @@ class ContaBancaria:
             return 'R$ ' + str(self.__saldo)
         else:
             return False
-        #return self.__saldo - valor 
+     
     
     def depositar(self, valor):
         return self.__saldo + valor
@@ -43,8 +43,8 @@ class ContaBancaria:
 
 
 conta = ContaBancaria('Célio', '51524481-5', 123, 0)  
-print(conta)
-#sacar
+
+
 def saque(): 
     novo_saldo = conta.sacar(float(input('Valor do saque: R$ ')))
     if novo_saldo is not False:
@@ -54,7 +54,7 @@ def saque():
         print("\n\n\nSaldo insuficiente ou valor inválido para saque\n\n\n")
         return None  
 
-#depositar
+
 def deposito():
     valor = float(input("Valor do deposito: R$ "))
     conta.setSaldo(conta.depositar(valor))
@@ -62,3 +62,42 @@ def deposito():
 
 
 
+
+
+
+
+
+
+def menu():
+    selecao = int(input('\nSelecione a conta que deseja consultar: \n(1) Conta Corrente \n(2) Conta Poupança \n(3) Conta Especial \n(0) Sair do sistema\n\n ' ))
+    if selecao == 1:
+        print('\n----Conta Corrente----')
+        print(conta)
+        ipt1 = input('Digite (S) para saque ou (D) para depósito: ')
+        if ipt1 == 'S' or ipt1 == 's':
+            saque()
+            print(conta)
+        elif ipt1 == 'D' or ipt1 == 'd':
+            deposito()
+            print(conta)
+        else:
+            print('Opção inválida')   
+    elif selecao == 2:
+        ipt2 = input('\nDigite (C) para consultar ou (S) para sair:')
+        if ipt2 == 'C' or ipt2 == 'c':
+            import ContaPoupanca
+            ContaPoupanca.opcao2()
+        elif ipt2 == 'S' or ipt2 == 's':
+            print('Até Breve!!')
+    elif selecao == 3:
+        ipt3 = input('\nDigite (C) para consultar ou (S) para sair:')
+        if ipt3 == 'C' or ipt3 =='c':
+            import ContaEspecial
+            ContaEspecial.opcao3() 
+    elif selecao == 0:
+        print('Até Breve!!')
+    else:
+        print('Opção inválida!')    
+
+if __name__ == '__main__':
+    menu()    
