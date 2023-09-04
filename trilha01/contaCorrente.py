@@ -37,7 +37,7 @@ class ContaCorrente:
   def __str__(self):
     return "Nome: "+ self.__nome +"\n" + "Agencia: " + str(self.__agencia) + "\n" +"Conta: "+ str(self.__conta) + "\n" +"Saldo: R$ "+ str(self.__saldo)
 
-obj1 = ContaCorrente('Guilherme', 4568, 123987654, 0)
+obj1 = ContaCorrente('Titular', 4568, 123987654, 0)
 print("\n\n\n\n===== Informações =====\n")
 print(obj1)
 sleep(1)
